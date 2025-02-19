@@ -26,7 +26,6 @@ export class UsersService {
                 },
             });
             // Ensure response.data is defined and contains at least one element
-            console.log("data:", response.data);
             if (response.data && Array.isArray(response.data) && response.data.length > 0) {
 
                 const student = {
@@ -63,7 +62,6 @@ export class UsersService {
             console.log('No access token');
             throw new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
         }
-        console.log('GET /users/:id/cursus');
         try {
             const response = await axios.get(`${process.env.INTRA_URL}/users/${id}/cursus_users`, {
                 headers: {
@@ -98,8 +96,6 @@ export class UsersService {
             console.log('No access token');
             throw new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
         }
-
-        console.log('GET /users/:id/projects');
 
         try {
             // https://api.intra.42.fr/v2/users/73377/projects_users?filter[status]=finished

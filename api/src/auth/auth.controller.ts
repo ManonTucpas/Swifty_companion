@@ -15,7 +15,6 @@ export class AuthController {
     if (!authCode) {
       return 'No auth code provided';
     }
-    console.log('Auth code:', authCode);
     await this.authService.fetchAuthToken(authCode);
     return { message: 'Authentication successful' };
   }
